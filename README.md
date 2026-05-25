@@ -1,44 +1,140 @@
 # Recipe Recommendation System
+
 ## Project Overview
-* In order to encourage healthier eating among students, I developed a recipe recommendation tool that takes user input into account. I culled more than 5,000 soup recipes from sites like Jamie Oliver and All Recipes.
-* Parsed  ingredients and created word embeddings using Word2Vec and TF-IDF.
-* Implemented a method for recommending recipes based on their word embeddings by calculating the cosine similarity as a measure of the euclidean distance between them.
-* Built a client-facing API using flask, and a user-friendly [app] with Streamlit.
 
-## Code 
-**Python Version:** 3.7  
-**Packages:** pandas, numpy, sklearn, gensim, matplotlib, seaborn, beautifulsoup, flask, streamlit, json, pickle  
-**For Web Framework Requirements:**  ```pip install -r requirements.txt```  
-**You can run this model yourself using my API:**
+This project is a machine learning-powered recipe recommendation system that suggests recipes based on user-provided ingredients.
 
-<p align="center">
-<img src="./input/flowchart.png" width="513" height="350">
-</p>
+The application uses Natural Language Processing (NLP) techniques such as TF-IDF vectorization and Word2Vec embeddings to analyze ingredient similarity and recommend recipes from a dataset of over 5,000 recipes scraped from websites such as Jamie Oliver and AllRecipes.
+
+The project includes:
+- A Streamlit web application
+- NLP preprocessing pipelines
+- Content-based recommendation engine
+- Web scraping utilities
+- Meal planning and user feedback components
+
+---
+
+## Technologies Used
+
+### Programming Language
+- Python 3.7
+
+### Libraries & Frameworks
+- pandas
+- numpy
+- scikit-learn
+- gensim
+- BeautifulSoup
+- Streamlit
+- Flask
+- pickle
+
+---
+
+## Installation
+
+Install project dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Repository Structure
+
+```text
+recipe-recommender-system/
+│
+├── input/          # Recipe datasets and processed data
+├── models/         # Trained ML models and encodings
+├── src/            # Core application source code
+│   └── scraping/   # Web scraping utilities
+│
+├── README.md
+├── requirements.txt
+├── streamlit.py
+├── setup.sh
+├── config.py
+└── .gitignore
+```
+
+---
 
 ## Web Scraping
-Built a **web scraper** using [Beautiful Soup] to scrape over 5000 food recipes from For each recipe and retrieve the following:
 
-* Recipe name 
-* Ingredients
-* URL
-* Rating
+Built a web scraper using BeautifulSoup to collect over 5,000 recipes from cooking websites.
 
-## Data Cleaning
- The **ingredient parser** does the following:
-* Lemmatize words to ensure we remove all versions of words, e.g. both pounds and pound
-* Removed stopwords 
-* Removed cooking measures
-* Removed common household items, such as oil
-* standard NLP preprocessing: getting rid of punctuation, removing accents, making everything lowercase, getting rid of Unicode, etc.
- 
+The scraper extracts:
+- Recipe names
+- Ingredients
+- Recipe URLs
+- Ratings
+
+---
+
+## Data Cleaning & NLP Processing
+
+The ingredient parser performs:
+- Lemmatization
+- Stopword removal
+- Cooking measurement normalization
+- Household ingredient filtering
+- Lowercasing and punctuation cleanup
+- Unicode normalization
+
+---
+
 ## Model Building
- Word2Vec was used because I wanted the text representations to capture distributional similarities between words. In the context of recipe ingredients, Word2vec allowed me to capture similarities between recipe ingredients that are commonly used together. 
 
-In order to build the recipe recommendation system, **TF-IDF** was used to aggregate embeddings (as opposed to simple averaging) as it gives us better distinguishing power between recipes by favoring unique ingredients.
+### Word2Vec
 
-The recommendation system was built using a **content-based filtering** approach which enables us to recommend recipes to people based on the ingredients the user provides. To measure the similarity between user-given ingredients and recipes **cosine similarity** was used. Spacy and KNN were also trialed but cosine similarity won in terms of performance (it was also the most simple approach). The recommendation model computes the cosine similarity between the inputted ingredient list and all recipes in the corpus. It then outputs the top-N most similar recipes, along with their ingredients and URLs, for the user to choose from.
+Word2Vec embeddings were used to capture semantic relationships between ingredients commonly used together in recipes.
 
+### TF-IDF
 
-<p align="center">
-<img src="./input/streamlit-app.png" width="800" height="444">
-</p>
+TF-IDF weighting was applied to improve distinguishing power between recipes by emphasizing more unique ingredients.
+
+### Recommendation Engine
+
+The recommendation system uses a content-based filtering approach to recommend recipes based on ingredient similarity.
+
+Cosine similarity is used to compare user-input ingredients against recipe embeddings and return the most relevant recipe matches.
+
+The model outputs:
+- Top recommended recipes
+- Ingredient lists
+- Recipe URLs
+
+Spacy and KNN approaches were also explored during experimentation, but cosine similarity provided the best balance of performance and simplicity.
+
+---
+
+## Features
+
+- Recipe recommendations based on ingredients
+- NLP-powered ingredient similarity analysis
+- TF-IDF and Word2Vec integration
+- Streamlit frontend interface
+- Web scraping pipeline
+- Modular project architecture
+- Meal planning functionality
+- User feedback system
+
+---
+
+## Future Improvements
+
+- Deploy application publicly using Streamlit Cloud or Render
+- Add user authentication
+- Add nutritional analysis dashboard
+- Improve recommendation accuracy
+- Add recipe image support
+- Containerize application using Docker
+
+---
+
+## Author
+
+Ibaad Shaikh
