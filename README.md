@@ -151,8 +151,7 @@ source venv/bin/activate
 
 ### 3. Install Dependencies
 ```bash
-pip install streamlit
-pip install pandas numpy scikit-learn nltk beautifulsoup4 pillow unidecode
+pip install -r requirements.txt
 ```
 
 ### 4. Generate TF-IDF Encodings
