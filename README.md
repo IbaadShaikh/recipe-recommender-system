@@ -18,7 +18,7 @@ The project includes:
 ## Technologies Used
 
 ### Programming Language
-- Python 3.7
+- Python
 
 ### Libraries & Frameworks
 - pandas
