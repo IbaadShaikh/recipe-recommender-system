@@ -135,6 +135,39 @@ Spacy and KNN approaches were also explored during experimentation, but cosine s
 
 ---
 
+## Running the Application
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/IbaadShaikh/recipe-recommender-system.git
+cd recipe-recommender-system
+```
+
+### 2. Create a Virtual Environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install streamlit
+pip install pandas numpy scikit-learn nltk beautifulsoup4 pillow unidecode
+```
+
+### 4. Generate TF-IDF Encodings
+```bash
+python src/tfidf_encoder.py
+```
+
+### 5. Run the Streamlit Application
+```bash
+streamlit run streamlit.py
+```
+The application will launch locally in your browser.
+
+---
+
 ## Demo Video
 
 https://github.com/user-attachments/assets/d52bb020-210e-4b7c-926d-e6ec8e1d0e13
