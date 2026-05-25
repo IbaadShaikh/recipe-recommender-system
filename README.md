@@ -135,6 +135,12 @@ Spacy and KNN approaches were also explored during experimentation, but cosine s
 
 ---
 
+## Demo Video
+
+https://github.com/user-attachments/assets/d52bb020-210e-4b7c-926d-e6ec8e1d0e13
+
+---
+
 ## Author
 
 Ibaad Shaikh
